@@ -48,7 +48,7 @@ c.vmdk: c/initramfs.gz
 	MTOOLS_SKIP_CHECK=1 mcopy -si c.img c/* ::
 	./bootlace.com --floppy c.img
 	qemu-img resize c.img ${C_CAPACITY}
-	qemu-img convert c.img -O vmdk -o subformat=streamOptimized c.vmdk
+	qemu-img convert c.img format=raw -O vmdk -o subformat=streamOptimized c.vmdk
 	rm c.img
 
 c.qcow2:
